@@ -1,5 +1,5 @@
 import sys
-
+import platform
 import pyperclip
 from google import genai
 
@@ -13,7 +13,11 @@ def readInput():
 def aiInit():
 
     client = genai.Client()
-    current_os = sys.platform
+    current_os = platform.system()
+    if current_os == "Linux":
+        os_info = platform.freedesktop_os_release()
+        os_name = os_info.get('NAME')
+        current_os = f"{current_os} {os_name}"
 
     aiCall = f"""You are a Command Line Interface generator.
     Target Operating System: {current_os}
@@ -25,6 +29,7 @@ def aiInit():
     3. Do NOT include any explanations, notes, or extra text.
     4. If the user asks for a dangerous operation, output the command commented out with #.
     5. If the request is unrelated to terminal commands, ask the user to redefine his prompt and try again.
+    User Request: {readInput()}
     """ 
     
     text = readInput()
@@ -41,14 +46,15 @@ def aiInit():
         exit()
     print("Copy this command? [y/N]",end='', flush=True)
     c = input()
-
-    if c=='y':
-        pyperclip.copy(response.text)
-    elif c=='n':
-        exit()
-    else:
-        print("Select [y/N]")
-        #TODO: Give choice once again without braking the program
+    
+    while True:
+        if c=='y':
+            pyperclip.copy(response.text)
+            break
+        elif c=='n':
+            exit()
+        else:
+            print("Select [y/N]")
 
 
 if __name__ == '__main__':
