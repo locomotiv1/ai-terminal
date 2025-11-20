@@ -44,17 +44,18 @@ def aiInit():
     
     if response.text == "Please redefine your prompt and try again.":
         exit()
-    print("Copy this command? [y/N]",end='', flush=True)
-    c = input()
-    
+
     while True:
+        print("Copy this command? [y/n]",end='', flush=True)
+        c = input()
+        
         if c=='y':
             pyperclip.copy(response.text)
             break
         elif c=='n':
-            exit()
+            break
         else:
-            print("Select [y/N]")
+            print("Select [y/N] \n" )
 
 
 if __name__ == '__main__':
