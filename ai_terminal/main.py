@@ -1,4 +1,5 @@
 import sys
+import pyperclip
 from google import genai
 
 def readInput():
@@ -12,7 +13,7 @@ def aiInit():
 
     client = genai.Client()
     
-    prompt = "You are a Linux command generator. Your only task is to translate the user's natural language request into the correct Linux command.\n" \
+    aiCall = "You are a Linux command generator. Your only task is to translate the user's natural language request into the correct Linux command.\n" \
              "Rules:\n" \
              "1. Output ONLY the command.\n" \
              "2. Do NOT use markdown formatting (no backticks).\n" \
@@ -24,13 +25,25 @@ def aiInit():
     text = readInput()
     if text == '':
         return 
-    final_prompt = prompt.format(user_input=text)
+    final_prompt = aiCall.format(user_input=text)
 
     response = client.models.generate_content(
         model="gemini-2.5-flash", contents=final_prompt
     )
     print(response.text)
-    print("Run this command? [y/N]")
+    
+    if response.text == "Please redefine your prompt and try again.":
+        exit()
+    print("Copy this command? [y/N]",end='', flush=True)
+    c = input()
+
+    if c=='y':
+        pyperclip.copy(response.text)
+    elif c=='n':
+        exit()
+    else:
+        print("Select [y/N]")
+        #TODO: Give choice once again without braking the program
 
 
 if __name__ == '__main__':

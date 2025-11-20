@@ -11,6 +11,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         'google-genai',
+        "pyperclip",
     ],
     python_requires='>=3.9',
     # 💡 Entry Point (The Magic Part)
