@@ -1,5 +1,5 @@
 
-# AI-Terminal
+# AI Terminal CLI
 
 A powerful Command Line Interface (CLI) tool that translates user requests into executable terminal commands using Google's Gemini API
 ## Prerequisites
@@ -51,4 +51,5 @@ source ~/.bashrc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
 
