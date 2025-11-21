@@ -6,7 +6,26 @@ A powerful Command Line Interface (CLI) tool that translates user requests into 
 
  - [A Google gemini API key](https://aistudio.google.com/api-keys)
  -  Python 3.9 or higher
-    
+
+## Usage/Examples
+
+### Basic Syntax:
+```
+ai <describe what you want to do>
+```
+### Examples:
+- File Management:
+```
+ai list all python files in the current directory sorted by size
+```
+- System Administration:
+```
+ai check how much disk space is left
+```
+- Networking:
+```
+ai find the process using the most memory
+```
 ## Installation
 
 1.Clone the repository
@@ -29,26 +48,7 @@ then reload your shell
 source ~/.bashrc
 ```
 
-## Usage/Examples
-
-### Basic Syntax:
-```
-ai <describe what you want to do>
-```
-### Examples:
-- File Management:
-```
-ai list all python files in the current directory sorted by size
-```
-- System Administration:
-```
-ai check how much disk space is left
-```
-- Networking:
-```
-ai find the process using the most memory
-```
-
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
