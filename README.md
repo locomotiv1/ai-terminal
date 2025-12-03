@@ -1,6 +1,8 @@
 
 # AI Terminal CLI
 
+[Screencast_20251203_211021.webm](https://github.com/user-attachments/assets/6119f1e3-df11-43c1-854b-92d920152f12)
+
 A powerful Command Line Interface (CLI) tool that translates user requests into executable terminal commands using Google's Gemini API
 ## Prerequisites
 
@@ -51,5 +53,6 @@ source ~/.bashrc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
 
 
